@@ -1,9 +1,48 @@
 $breakpoints: (
-    xxsmall: (min-width: 360px),
-    xsmall: (min-width: 460px),
-    small: (min-width: 800px),
-    medium: (min-width: 1024px),
-    large: (min-width: 1280px),
-    xlarge: (min-width: 1440px),
-    xxlarge: (min-width: 1600px),
+  xxsmall: (
+    min-width: 360px,
+  ),
+  xsmall: (
+    min-width: 460px,
+  ),
+  small: (
+    min-width: 800px,
+  ),
+  medium: (
+    min-width: 1024px,
+  ),
+  large: (
+    min-width: 1280px,
+  ),
+  xlarge: (
+    min-width: 1440px,
+  ),
+  xxlarge: (
+    min-width: 1600px,
+  ),
+);
+
+$font-family-primary: 'Barlow Semi Condensed', sans-serif;
+$font-size-primary: 10px;
+$font-color-primary: hsl(0, 0%, 100%);
+$font-color-score: hsl(229, 25%, 31%);
+
+$background-color-primary: radial-gradient(
+  hsl(214, 47%, 23%),
+  hsl(237, 49%, 15%)
+);
+
+$outline-color-primary: hsl(217, 16%, 45%);
+
+$paper-gradient-background: linear-gradient(
+  hsl(230, 89%, 62%),
+  hsl(230, 89%, 65%)
+);
+$scissors-gradient-background: linear-gradient(
+  hsl(39, 89%, 49%),
+  hsl(40, 84%, 53%)
+);
+$rock-gradient-background: linear-gradient(
+  hsl(349, 71%, 52%),
+  hsl(261, 72%, 63%)
 );
