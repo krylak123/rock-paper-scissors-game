@@ -14,7 +14,31 @@
 </head>
 
 <body>
-  <h1>working</h1>
+  <div class="wrapper">
+    <header class="wrapper__header header">
+      <div class="header__title-wrap">
+        <h1 class="header__title">Rock</h1>
+        <h1 class="header__title">Paper</h1>
+        <h1 class="header__title">Scissors</h1>
+      </div>
+      <div class="header__score-wrap">
+        <p class="header__score-title">Score</p>
+        <p class="header__score-value">0</p>
+      </div>
+    </header>
+    <aside class="scoreboard">
+      <p class="scoreboard__score-name scoreboard__score-name--win">Win:
+        <span class="scoreboard__score-value">0</span>
+      </p>
+      <p class="scoreboard__score-name scoreboard__score-name--lose">Lose:
+        <span class="scoreboard__score-value">0</span>
+      </p>
+      <p class="scoreboard__score-name scoreboard__score-name--draw">Draw:
+        <span class="scoreboard__score-value">0</span>
+      </p>
+    </aside>
+    <main class="wrapper__game game"></main>
+  </div>
 </body>
 
 </html>
