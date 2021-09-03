@@ -1,0 +1,33 @@
+@keyframes scoreboard-move {
+  20% {
+    box-shadow: 0 10px 10px 2px #000;
+    transform: rotateX(-30deg);
+  }
+
+  25% {
+    box-shadow: 0 10px 20px 3px #000;
+  }
+
+  30% {
+    box-shadow: 0 10px 30px 4px #000;
+    transform: rotateX(25deg);
+  }
+
+  25% {
+    box-shadow: 0 10px 20px 3px #000;
+  }
+
+  45% {
+    box-shadow: 0 10px 10px 2px #000;
+    transform: rotateX(-20deg);
+  }
+
+  55% {
+    box-shadow: 0 10px 20px 3px #000;
+    transform: rotateX(0);
+  }
+
+  100% {
+    transform: rotateX(0);
+  }
+}
