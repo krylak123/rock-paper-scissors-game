@@ -38,19 +38,22 @@
       </p>
     </aside>
     <main class="wrapper__game game">
-      <button type="button" class="choice-btn choice-btn--rock">
+      <button name="rock" type="button" class="choice-btn choice-btn--rock">
+        <span class="choice-btn__shadow choice-btn__shadow--rock"></span>
         <img src=<%=require("./images/icon-rock.svg")%> alt="rock icon" class="choice-btn__img">
       </button>
-      <button type="button" class="choice-btn choice-btn--paper">
+      <button name="paper" type="button" class="choice-btn choice-btn--paper">
+        <span class="choice-btn__shadow choice-btn__shadow--paper"></span>
         <img src=<%=require("./images/icon-paper.svg")%> alt="paper icon" class="choice-btn__img">
       </button>
-      <button type="button" class="choice-btn choice-btn--scissors">
+      <button name="scissors" type="button" class="choice-btn choice-btn--scissors">
+        <span class="choice-btn__shadow choice-btn__shadow--scissors"></span>
         <img src=<%=require("./images/icon-scissors.svg")%> alt="scissorc icon" class="choice-btn__img">
       </button>
     </main>
     <button class="btn">rules</button>
   </div>
-  <dialog class="rules">
+  <div class="rules">
     <p class="rules__title">rules</p>
     <div class="rules__img-wrap">
       <img src=<%=require("./images/image-rules.svg")%> alt="rules" class="rules__img">
@@ -58,7 +61,7 @@
     <button type="button" class="rules__icon-btn">
       <img src=<%=require("./images/icon-close.svg")%> alt="close" class="rules__icon">
     </button>
-  </dialog>
+  </div>
 </body>
 
 </html>
