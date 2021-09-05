@@ -29,7 +29,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       inject: 'body',
-      title: 'Rock Paper Scissros Game',
+      title: 'Rock Paper Scissors Game',
+      minify: false,
     }),
     new FaviconsWebpackPlugin({
       logo: './public/favicon.png',

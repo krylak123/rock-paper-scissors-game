@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, '../', 'build'),
     publicPath: '/',
     filename: 'js/[name].bundle.js',
-    assetModuleFilename: 'images/[name].[ext][query]',
+    assetModuleFilename: 'images/[name][ext][query]',
   },
   devServer: {
     open: true,
