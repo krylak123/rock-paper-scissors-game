@@ -1,6 +1,8 @@
-import handleOpenRulesModal from './modules/HandleRulesModal';
+import Modal from './modules/Modal';
 
 import './scss/index.scss';
 
+const handleModal = new Modal();
+
 // Handle showing the rules
-document.querySelector('.btn')?.addEventListener('click', handleOpenRulesModal);
+handleModal.init();
