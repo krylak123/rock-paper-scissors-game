@@ -1,3 +1,6 @@
+import rockSvg from '../images/icon-rock.svg';
+import paperSvg from '../images/icon-paper.svg';
+import scissorsSvg from '../images/icon-scissors.svg';
 class BuildBoard {
   private readonly fragment: Node;
   public constructor() {
@@ -7,6 +10,17 @@ class BuildBoard {
   private buildBtn(name: string, winner?: string): HTMLElement {
     const btn = document.createElement('button');
     const span = document.createElement('span');
+    let image = null;
+
+    if (name !== 'empty') {
+      if (name === 'rock') {
+        image = rockSvg;
+      } else if (name === 'paper') {
+        image = paperSvg;
+      } else if (name === 'scissors') {
+        image = scissorsSvg;
+      }
+    }
 
     btn.setAttribute('name', `${name}`);
     btn.setAttribute('type', 'button');
@@ -15,8 +29,9 @@ class BuildBoard {
     if (name === winner)
       btn.setAttribute('class', `choice-btn choice-btn--${name} winner`);
 
-    if (name !== 'empty')
-      btn.innerHTML = `<img src"./images/icon-${name}.svg" alt="${name} icon" class="choice-btn__img">`;
+    if (name !== 'empty') {
+      btn.innerHTML = `<img src=${image} alt="${name} icon" class="choice-btn__img">`;
+    }
 
     span.setAttribute(
       'class',

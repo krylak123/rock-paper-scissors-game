@@ -9,7 +9,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../', 'build'),
     filename: 'static/js/[name]-[contenthash].bundle.js',
-    assetModuleFilename: 'static/images/[contenthash].bundle[ext][query]',
   },
   module: {
     rules: [

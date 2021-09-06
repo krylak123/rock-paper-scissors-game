@@ -20,7 +20,18 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|svg|gif|jpeg)$/,
-        type: 'asset',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[contenthash].[ext]',
+              outputPath: 'images',
+              publicPath: 'images',
+              emitFile: true,
+              esModule: false,
+            },
+          },
+        ],
       },
     ],
   },
