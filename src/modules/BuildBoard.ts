@@ -42,6 +42,7 @@ class BuildBoard {
     h2.setAttribute('class', 'game__details-subtitle');
     h2.textContent = 'Waiting for computer choice';
 
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     for (let i = 0; i < 3; i++) {
       const span = document.createElement('span');
       span.setAttribute('class', 'game__details-dot');
@@ -61,7 +62,7 @@ class BuildBoard {
     const btn = document.createElement('button');
 
     div.setAttribute('class', 'game__details');
-    div.setAttribute('style', 'animation: show-details 1s 1s both');
+    div.setAttribute('style', 'animation: show-details 1s 0.5s both');
 
     h1.setAttribute('class', 'game__details-title game__details-title--winner');
     if (winner === 'player') h1.textContent = 'You win';

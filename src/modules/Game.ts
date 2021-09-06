@@ -1,7 +1,9 @@
 import BuildBoard from './BuildBoard';
 import Winner from './Winner';
+import Statistics from './Statistics';
 
 class Game {
+  public stats: any;
   public gameBoard: HTMLElement | null;
   public choiceBtns: NodeList;
   public choicePlayer: string;
@@ -10,6 +12,7 @@ class Game {
   public timeout: number;
 
   public constructor() {
+    this.stats = new Statistics();
     this.gameBoard = document.querySelector('.game');
     this.choiceBtns = document.querySelectorAll('.choice-btn');
     this.choicePlayer = '';
@@ -63,6 +66,8 @@ class Game {
         this.winner
       );
 
+      this.stats.updateStats(this.winner);
+
       this.gameBoard?.appendChild(secondBoard);
       document
         .querySelector('.game__details-btn')
@@ -71,6 +76,8 @@ class Game {
   }
 
   public init(): void {
+    this.stats.showStats();
+
     this.choiceBtns = document.querySelectorAll('.choice-btn');
     this.choiceBtns.forEach((btn) =>
       btn.addEventListener('click', this.start.bind(this, btn))
