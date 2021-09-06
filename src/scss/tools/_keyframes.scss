@@ -23,11 +23,54 @@
   }
 
   55% {
+    box-shadow: 0 10px 20px 10px #000;
+    transform: rotateX(5deg);
+  }
+
+  60% {
     box-shadow: 0 10px 20px 3px #000;
     transform: rotateX(0);
   }
 
   100% {
     transform: rotateX(0);
+  }
+}
+
+@keyframes show-details {
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes show-btns {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dots {
+  0% {
+    opacity: 0;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

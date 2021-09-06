@@ -1,14 +1,15 @@
 .choice-btn {
   position: relative;
   display: block;
-  margin-right: 10px;
   width: 25vw;
   height: 25vw;
   outline: none;
   border: none;
+  background: gray;
   border-radius: 50%;
   transition: 0.2s;
   cursor: pointer;
+  animation: show-btns 1s both;
 
   &::before {
     content: '';
@@ -35,10 +36,6 @@
     border-radius: 50%;
   }
 
-  &:last-child {
-    margin-right: 0;
-  }
-
   &--rock {
     background: $rock-gradient-background;
   }
@@ -58,6 +55,7 @@
     transform: translateX(-50%);
     width: 100%;
     height: 90%;
+    background-color: darken($color: hsl(0, 0%, 50%), $amount: 10%);
     border-radius: 50%;
     z-index: -1;
 
@@ -92,18 +90,30 @@
       0px 0px 0px 150px rgba(0, 0, 0, 0.05);
   }
 
+  @media screen and (orientation: portrait) and (max-width: 359px) {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
   @include mq(xxsmall) {
     width: 100px;
     height: 100px;
-  }
+    margin-right: 10px;
 
-  @include mq(small) {
-    width: 120px;
-    height: 120px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
+}
+
+@include mq(small) {
+  width: 120px;
+  height: 120px;
 
   @include mq(medium) {
-    margin-bottom: 100px;
     width: 150px;
     height: 150px;
   }

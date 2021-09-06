@@ -29,6 +29,8 @@
   }
 
   @include mq(small) {
+    position: static;
+    transform: translateX(0);
     font-size: 2rem;
   }
 }
