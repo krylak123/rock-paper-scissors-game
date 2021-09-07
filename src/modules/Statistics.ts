@@ -1,3 +1,5 @@
+import { statsNames } from '../helpers/names';
+
 class Statistics {
   private score: number;
   private win: number;
@@ -11,6 +13,22 @@ class Statistics {
     this.draw = 0;
   }
 
+  public getData(): void {
+    const score = Number(localStorage.getItem(statsNames.STATS_SCORE));
+    const win = Number(localStorage.getItem(statsNames.STATS_WIN));
+    const lose = Number(localStorage.getItem(statsNames.STATS_LOSE));
+    const draw = Number(localStorage.getItem(statsNames.STATS_DRAW));
+
+    if (!score && !win && !lose && !draw) return;
+
+    this.score = score;
+    this.win = win;
+    this.lose = lose;
+    this.draw = draw;
+
+    this.showStats();
+  }
+
   public updateStats(winner: string): void {
     if (winner === 'player') {
       this.score += 1;
@@ -22,10 +40,15 @@ class Statistics {
       this.draw += 1;
     }
 
+    localStorage.setItem(statsNames.STATS_SCORE, String(this.score));
+    localStorage.setItem(statsNames.STATS_WIN, String(this.win));
+    localStorage.setItem(statsNames.STATS_LOSE, String(this.lose));
+    localStorage.setItem(statsNames.STATS_DRAW, String(this.draw));
+
     this.showStats();
   }
 
-  public showStats(): void {
+  private showStats(): void {
     const scoreElement = document.querySelector(
       '.header__score-value',
     ) as HTMLSpanElement;

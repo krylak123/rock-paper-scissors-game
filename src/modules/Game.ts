@@ -21,6 +21,8 @@ class Game {
 
     this.gameBoard = document.querySelector('.game');
     this.choiceBtns = document.querySelectorAll('.choice-btn');
+
+    this.stats.getData();
   }
 
   private generateComputerChoice(): string {
@@ -80,8 +82,6 @@ class Game {
   }
 
   public init(): void {
-    this.stats.showStats();
-
     this.choiceBtns = document.querySelectorAll('.choice-btn');
 
     this.choiceBtns.forEach(btn =>
