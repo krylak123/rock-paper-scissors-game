@@ -26,8 +26,9 @@ class BuildBoard {
     btn.setAttribute('type', 'button');
     btn.setAttribute('class', `choice-btn choice-btn--${name}`);
 
-    if (name === winner)
+    if (winner) {
       btn.setAttribute('class', `choice-btn choice-btn--${name} winner`);
+    }
 
     if (name !== 'empty') {
       btn.innerHTML = `<img src=${image} alt="${name} icon" class="choice-btn__img">`;
@@ -35,7 +36,7 @@ class BuildBoard {
 
     span.setAttribute(
       'class',
-      `choice-btn__shadow choice-btn__shadow--${name}`
+      `choice-btn__shadow choice-btn__shadow--${name}`,
     );
 
     btn.appendChild(span);
@@ -121,11 +122,17 @@ class BuildBoard {
   public buildSecondBoard(
     player: string,
     computer: string,
-    winner: string
+    winner: string,
   ): Node {
-    const btnPlayer = this.buildBtn(player, winner);
+    const btnPlayer = this.buildBtn(
+      player,
+      winner === 'player' ? winner : undefined,
+    );
     const details = this.buildSecondDetails(winner);
-    const btnComputer = this.buildBtn(computer, winner);
+    const btnComputer = this.buildBtn(
+      computer,
+      winner === 'computer' ? winner : undefined,
+    );
 
     this.fragment.appendChild(btnPlayer);
     this.fragment.appendChild(details);
