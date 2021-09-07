@@ -27,16 +27,16 @@ class Statistics {
 
   public showStats(): void {
     const scoreElement = document.querySelector(
-      '.header__score-value'
+      '.header__score-value',
     ) as HTMLSpanElement;
     const winElement = document.querySelector(
-      '.scoreboard__score-name--win span'
+      '.scoreboard__score-name--win span',
     ) as HTMLSpanElement;
     const loseElement = document.querySelector(
-      '.scoreboard__score-name--lose span'
+      '.scoreboard__score-name--lose span',
     ) as HTMLSpanElement;
     const drawElement = document.querySelector(
-      '.scoreboard__score-name--draw span'
+      '.scoreboard__score-name--draw span',
     ) as HTMLSpanElement;
 
     scoreElement.textContent = String(this.score);

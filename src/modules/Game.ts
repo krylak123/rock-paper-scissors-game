@@ -3,35 +3,38 @@ import Winner from './Winner';
 import Statistics from './Statistics';
 
 class Game {
-  public stats: any;
-  public gameBoard: HTMLElement | null;
-  public choiceBtns: NodeList;
-  public choicePlayer: string;
-  public choiceComputer: string;
-  public winner: string;
-  public timeout: number;
+  private readonly stats: any;
+  private readonly timeout: number;
+  private choicePlayer: string;
+  private choiceComputer: string;
+  private winner: string;
+  private readonly gameBoard: HTMLElement | null;
+  private choiceBtns: NodeList;
 
   public constructor() {
     this.stats = new Statistics();
-    this.gameBoard = document.querySelector('.game');
-    this.choiceBtns = document.querySelectorAll('.choice-btn');
+
+    this.timeout = 3000;
     this.choicePlayer = '';
     this.choiceComputer = '';
     this.winner = '';
-    this.timeout = 3000;
+
+    this.gameBoard = document.querySelector('.game');
+    this.choiceBtns = document.querySelectorAll('.choice-btn');
   }
 
   private generateComputerChoice(): string {
     const choiceList = ['rock', 'paper', 'scissors'];
-    const randomNumber = Math.floor(Math.random() * this.choiceBtns.length);
-    const choice = choiceList[randomNumber];
+    const choice =
+      choiceList[Math.floor(Math.random() * this.choiceBtns.length)];
 
     return choice;
   }
 
   private reset(): void {
-    while (this.gameBoard?.firstChild)
+    while (this.gameBoard?.firstChild) {
       this.gameBoard.removeChild(this.gameBoard.firstChild);
+    }
 
     const startBoard = new BuildBoard().buildStartBoard();
     this.gameBoard?.appendChild(startBoard);
@@ -46,24 +49,25 @@ class Game {
 
     this.winner = new Winner(
       this.choicePlayer,
-      this.choiceComputer
+      this.choiceComputer,
     ).pickWinner();
 
-    while (this.gameBoard?.firstChild)
+    while (this.gameBoard?.firstChild) {
       this.gameBoard.removeChild(this.gameBoard.firstChild);
+    }
 
     const firstBoard = new BuildBoard().buildFirstBoard(this.choicePlayer);
-
     this.gameBoard?.appendChild(firstBoard);
 
     setTimeout(() => {
-      while (this.gameBoard?.firstChild)
+      while (this.gameBoard?.firstChild) {
         this.gameBoard.removeChild(this.gameBoard.firstChild);
+      }
 
       const secondBoard = new BuildBoard().buildSecondBoard(
         this.choicePlayer,
         this.choiceComputer,
-        this.winner
+        this.winner,
       );
 
       this.stats.updateStats(this.winner);
@@ -79,8 +83,9 @@ class Game {
     this.stats.showStats();
 
     this.choiceBtns = document.querySelectorAll('.choice-btn');
-    this.choiceBtns.forEach((btn) =>
-      btn.addEventListener('click', this.start.bind(this, btn))
+
+    this.choiceBtns.forEach(btn =>
+      btn.addEventListener('click', this.start.bind(this, btn)),
     );
   }
 }
