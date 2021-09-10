@@ -58,6 +58,8 @@
     &__details {
       position: absolute;
       transform: translateY(-100px);
+      z-index: 5;
+      text-shadow: 0 0 10px #000;
     }
   }
 
